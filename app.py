@@ -47,7 +47,7 @@ def upload_file(
         gr.Error('"pos|p-value" header does not exist.')
 
     idx_id = header.index('id')
-    genes = [sample[idx_id] for sample in data]
+    genes = sorted([sample[idx_id] for sample in data])
     genes.insert(0, '<all_significant>')
 
     return [

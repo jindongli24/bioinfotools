@@ -84,7 +84,7 @@ def volcano_plot(
                 if (id in genes_label) or ('<all_significant>' in genes_label):
                     up_id.append(id)
                 else:
-                    down_id.append(None)
+                    up_id.append(None)
             else:
                 not_sig.append([x_pos, y_pos])
 
@@ -108,7 +108,7 @@ def volcano_plot(
         ax.scatter(up[:, 0], up[:, 1], c='red', alpha=0.5, label='UP')
 
         for i in range(len(up)):
-            if up_id:
+            if up_id[i]:
                 text.append(
                     ax.text(x=up[i, 0], y=up[i, 1], s=up_id[i], fontsize=8)
                 )
@@ -117,7 +117,7 @@ def volcano_plot(
         ax.scatter(down[:, 0], down[:, 1], c='blue', alpha=0.5, label='DOWN')
 
         for i in range(len(down)):
-            if down_id:
+            if down_id[i]:
                 text.append(
                     ax.text(
                         x=down[i, 0], y=down[i, 1], s=down_id[i], fontsize=8
@@ -130,7 +130,7 @@ def volcano_plot(
         )
 
         for i in range(len(not_sig)):
-            if not_sig_id:
+            if not_sig_id[i]:
                 text.append(
                     ax.text(
                         x=not_sig[i, 0],
@@ -144,7 +144,7 @@ def volcano_plot(
         adjust_text(text, arrowprops=dict(arrowstyle='-', color='k'))
 
     if title:
-        fig.title(title)
+        fig.suptitle(title)
 
     ax.set_xlabel("$log_{2}$ fold change", size=15)
     ax.set_ylabel("-$log_{10}$ P value", size=15)
