@@ -1,0 +1,5 @@
+adjustText
+gradio
+matplotlib
+numpy
+Pillow
