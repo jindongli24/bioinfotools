@@ -22,4 +22,4 @@ Then, go to this address (http://127.0.0.1:8000) with your broweser.
 
 ## License
 
-Gradio is licensed under the MIT License found in the LICENSE file in the root directory of this repository.
+BioInfo Visualizer is licensed under the MIT License found in the LICENSE file in the root directory of this repository.
